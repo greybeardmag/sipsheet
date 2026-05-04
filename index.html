@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sip Sheet — Pediatric Oral Rehydration &amp; Anti-Emetic Dosing</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="screen-wrapper">
+
+  <!-- ══════════════════════════════
+       HEADER
+  ══════════════════════════════ -->
+  <header style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+  <!-- Left side: title + subtitle -->
+  <div style="flex:1; min-width:280px;">
+    <h1>
+      <span aria-hidden="true">💧</span>
+      <span data-i18n="header_title">Sip Sheet</span>
+      <span style="color:var(--blue)" data-i18n="header_title_highlight">
+        — Pediatric Oral Rehydration &amp; Anti-Emetic Dosing
+      </span>
+    </h1>
+    <p style="font-size:0.82rem; color:var(--mid); margin-top:5px;max-width:600px;line-height:1.5;" data-i18n="header_subtitle">
+      Evidence-based oral rehydration therapy and weight-based ondansetron dosing for vomiting and dehydration in children, based on SickKids AboutKidsHealth, CHEO, and CPS guidelines.
+    </p>
+  </div>
+
+  <!-- Right side: language selector + print button -->
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:4px;">
+    <div class="lang-selector-wrap" style="margin-top:0;">
+      <span class="lang-selector-label" data-i18n="lang_selector_label">Language</span>
+      <select id="langSelect" aria-label="Language selector"></select>
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      <span data-i18n="print_btn">Print Sheet</span>
+    </button>
+  </div>
+</header>
+
+  <!-- ══════════════════════════════
+       SECTION 1 — WHAT IS DEHYDRATION?
+  ══════════════════════════════ -->
+  <div class="section-heading" data-i18n="s1_heading">What is Dehydration?</div>
+
+  <!-- Definition + Red flags — side by side -->
+  <div style="display:flex; gap:14px; align-items:stretch; margin-bottom:20px; flex-wrap:wrap;">
+
+    <div class="fever-box" style="margin-bottom:0; flex:1; min-width:240px;">
+      <div class="fever-icon" aria-hidden="true">🚰</div>
+      <div>
+        <h3 data-i18n="defn_box_heading">Clinical Definition</h3>
+        <div class="fever-temps">
+          <div class="temp-chip dehyd-mild">
+            <span data-i18n="dehyd_chip_mild_label">Mild</span>
+            <span data-i18n="dehyd_chip_mild_desc">&lt;5%</span>
+          </div>
+          <div class="temp-chip dehyd-moderate">
+            <span data-i18n="dehyd_chip_mod_label">Moderate</span>
+            <span data-i18n="dehyd_chip_mod_desc">5–10%</span>
+          </div>
+          <div class="temp-chip dehyd-severe">
+            <span data-i18n="dehyd_chip_sev_label">Severe</span>
+            <span data-i18n="dehyd_chip_sev_desc">&gt;10%</span>
+          </div>
+        </div>
+        <div class="fever-note" data-i18n-html="defn_note_html">
+          <strong>Dehydration</strong> is the loss of body fluids exceeding intake, most commonly from vomiting and diarrhea in children. Severity is classified by estimated percent body weight loss. Most mild-to-moderate dehydration in children can be managed safely at home with oral rehydration therapy.
+        </div>
+      </div>
+    </div>
+
+    <div class="fever-box" style="margin-bottom:0; padding:14px 18px; flex:1; min-width:220px; background:var(--red-light); border-color:#f0c5c2; border-left-color:var(--red);">
+      <div class="fever-icon" style="font-size:1.3rem;" aria-hidden="true">🚨</div>
+      <div>
+        <h3 style="color:var(--red);" data-i18n="redflag_title">Red Flag Symptoms — Seek Medical Attention</h3>
+        <ul style="font-size:0.75rem; line-height:1.6; margin:0; padding-inline-start:14px; color:#7a1818;">
+          <li data-i18n="redflag_1">Sunken fontanelle (infants)</li>
+          <li data-i18n="redflag_2">No urine output for &gt;8 hours</li>
+          <li data-i18n="redflag_3">No tears when crying</li>
+          <li data-i18n="redflag_4">Dry mouth and tongue</li>
+          <li data-i18n="redflag_5">Lethargic or difficult to rouse</li>
+          <li data-i18n="redflag_6">Rapid or weak pulse</li>
+          <li data-i18n="redflag_7">Sunken eyes</li>
+          <li data-i18n="redflag_8">Poor skin turgor (skin does not spring back when pinched)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════
+       SECTION 2 — ORT DOSING CALCULATOR
+  ══════════════════════════════ -->
+  <div class="section-heading" data-i18n="s2_heading">ORT Dosing Calculator</div>
+
+  <!-- About ORT + Input Card — side by side -->
+  <div style="display:flex; gap:14px; align-items:stretch; margin-bottom:18px; flex-wrap:wrap;">
+
+    <!-- About ORT info box -->
+    <div class="fever-box" style="margin-bottom:0; flex:1; min-width:220px;">
+      <div class="fever-icon" aria-hidden="true">🥤</div>
+      <div>
+        <h3 data-i18n="ort_box_heading">About ORT</h3>
+        <div class="fever-note" data-i18n-html="ort_box_html">
+          Oral rehydration therapy (ORT) is appropriate for <strong>mild-to-moderate dehydration</strong> in children <strong>≥ 1 month</strong>. Use WHO/UNICEF standard oral rehydration solution (ORS) such as Pedialyte or Hydralyte. Avoid plain water, juice, or sports drinks.
+        </div>
+      </div>
+    </div>
+
+    <!-- Shared weight input — drives both ORT and Zofran calculators -->
+    <div class="input-card" style="margin-bottom:0; flex:0 0 auto; align-self:stretch;">
+      <div>
+        <label for="weightInput" data-i18n="label_weight">Child's Weight</label>
+        <div class="weight-row">
+          <input class="weight-input" id="weightInput"
+                 type="number" min="1" max="150" step="0.1"
+                 data-i18n-placeholder="weight_placeholder"
+                 placeholder="—"
+                 oninput="debouncedCalculate()">
+          <div class="unit-toggle">
+            <button class="unit-btn active" id="btnKg" onclick="setUnit('kg')">kg</button>
+            <button class="unit-btn" id="btnLbs" onclick="setUnit('lbs')">lbs</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Age / weight advisory note -->
+<div class="input-age-note hidden" id="weightAgeNote"></div>
+
+  <!-- ── REHYDRATION RESULTS ── -->
+  <div id="ortRehydrationResults">
+    <div class="phase-label phase-blue">
+      <span aria-hidden="true">①</span>
+      <span data-i18n="rehydration_phase_label">Rehydration — Oral Deficit Replacement</span>
+    </div>
+
+    <div class="result-pair">
+      <!-- Mild dehydration card -->
+      <div class="dose-result-card accent-green">
+        <h4 data-i18n="rehyd_mild_heading">Mild Dehydration (&lt;5%)</h4>
+        <div class="dose-result-grid">
+          <div class="dose-result-item">
+            <div class="dose-result-label" data-i18n="rehyd_total_label">Total ORS</div>
+            <div class="dose-result-value pending" id="mildTotalMl">—</div>
+            <div class="dose-result-unit" data-i18n="unit_ml_over_4h">mL over 4 hours</div>
+          </div>
+          <div class="dose-result-item">
+            <div class="dose-result-label" data-i18n="rehyd_cups_label">Approx. Cups</div>
+            <div class="dose-result-value pending" id="mildCups">—</div>
+            <div class="dose-result-unit" data-i18n="unit_cups_250ml">cups (250 mL each)</div>
+          </div>
+          <div class="dose-result-item">
+            <div class="dose-result-label" data-i18n="rehyd_rate_label">Rate</div>
+            <div class="dose-result-value pending" id="mildRate">—</div>
+            <div class="dose-result-unit" data-i18n="unit_ml_per_hour">mL/hour</div>
+          </div>
+          <div class="dose-result-item">
+            <div class="dose-result-label" data-i18n="rehyd_syringe_label">Syringe Rate</div>
+            <div class="dose-result-value pending" id="mildSyringe">—</div>
+            <div class="dose-result-unit" data-i18n="unit_ml_per_5min">mL every 5 min</div>
+          </div>
+        </div>
+        <div class="dose-result-note" data-i18n-html="rehyd_mild_note_html">
+          50 mL/kg of ORS over 4 hours. If vomiting, offer by syringe — <strong>5 mL every 1–2 minutes</strong>.
+        </div>
+      </div>
+
+      <!-- Moderate dehydration card -->
+      <div class="dose-result-card accent-orange">
+        <h4 data-i18n="rehyd_mod_heading">Moderate Dehydration (5–10%)</h4>
+        <div class="dose-result-grid">
+          <div class="dose-result-item">
+            <div class="dose-result-label" data-i18n="rehyd_total_label">Total ORS</div>
+            <div class="dose-result-value pending" id="modTotalMl">—</div>
+            <div class="dose-result-unit" data-i18n="unit_ml_over_4h">mL over 4 hours</div>
+          </div>
+          <div class="dose-result-item">
+            <div class="dose-result-label" data-i18n="rehyd_cups_label">Approx. Cups</div>
+            <div class="dose-result-value pending" id="modCups">—</div>
+            <div class="dose-result-unit" data-i18n="unit_cups_250ml">cups (250 mL each)</div>
+          </div>
+          <div class="dose-result-item">
+            <div class="dose-result-label" data-i18n="rehyd_rate_label">Rate</div>
+            <div class="dose-result-value pending" id="modRate">—</div>
+            <div class="dose-result-unit" data-i18n="unit_ml_per_hour">mL/hour</div>
+          </div>
+          <div class="dose-result-item">
+            <div class="dose-result-label" data-i18n="rehyd_syringe_label">Syringe Rate</div>
+            <div class="dose-result-value pending" id="modSyringe">—</div>
+            <div class="dose-result-unit" data-i18n="unit_ml_per_5min">mL every 5 min</div>
+          </div>
+        </div>
+        <div class="dose-result-note" data-i18n-html="rehyd_mod_note_html">
+          100 mL/kg of ORS over 4 hours. If vomiting, offer by syringe — <strong>5 mL every 1–2 minutes</strong>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MAINTENANCE RESULTS ── -->
+  <div id="ortMaintenanceResults">
+    <div class="phase-label phase-blue">
+      <span aria-hidden="true">②</span>
+      <span data-i18n="maintenance_phase_label">Maintenance Fluids (Holliday-Segar)</span>
+    </div>
+
+    <div class="dose-result-card">
+      <h4 data-i18n="maint_result_heading">Daily Maintenance — Calculated</h4>
+      <div class="dose-result-grid">
+        <div class="dose-result-item">
+          <div class="dose-result-label" data-i18n="maint_daily_label">Daily Volume</div>
+          <div class="dose-result-value pending" id="maintDailyMl">—</div>
+          <div class="dose-result-unit" data-i18n="unit_ml_per_day">mL/day</div>
+        </div>
+        <div class="dose-result-item">
+          <div class="dose-result-label" data-i18n="maint_daily_l_label">Daily Volume (L)</div>
+          <div class="dose-result-value pending" id="maintDailyL">—</div>
+          <div class="dose-result-unit" data-i18n="unit_l_per_day">L/day</div>
+        </div>
+        <div class="dose-result-item">
+          <div class="dose-result-label" data-i18n="maint_hourly_label">Hourly Rate</div>
+          <div class="dose-result-value pending" id="maintHourly">—</div>
+          <div class="dose-result-unit" data-i18n="unit_ml_per_hour">mL/hour</div>
+        </div>
+      </div>
+      <div class="dose-result-note" data-i18n-html="maint_note_html">
+        Baseline fluid needs only. <strong>Additional ORS should be given for each episode of ongoing diarrhea or vomiting.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORS instruction mix card -->
+  <div class="mix-card">
+    <div class="mix-card-icon" aria-hidden="true">🧃</div>
+    <div class="mix-card-body">
+      <h4 data-i18n="ors_mix_heading">What to Use for ORS</h4>
+      <p data-i18n-html="ors_mix_body_html">Use <strong>WHO/UNICEF standard ORS</strong> (e.g. Pedialyte, Hydralyte, or homemade: 1L water + 6 tsp sugar + ½ tsp salt). Serve chilled or with a straw to improve palatability. <strong>Avoid Gatorade/sports drinks</strong> — too much sugar, too little sodium.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SECTION 3 — ONDANSETRON DOSING CALCULATOR
+  ══════════════════════════════ -->
+  <div class="section-heading" data-i18n="s3_heading">Ondansetron (Zofran) Dosing Calculator</div>
+
+  <!-- About Zofran — note that weight comes from the shared input above -->
+  <div class="fever-box" style="margin-bottom:14px;">
+    <div class="fever-icon" aria-hidden="true">💊</div>
+    <div>
+      <h3 data-i18n="zofran_box_heading">About Ondansetron (Zofran)</h3>
+      <div class="fever-note" data-i18n-html="zofran_box_html">
+        Ondansetron ODT is appropriate for children <strong>≥ 6 months</strong> with vomiting due to gastroenteritis. It is <strong>not routinely recommended</strong> for vomiting from other causes without physician assessment. <strong>Prescription required in Canada.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zofran age note (shown when weight < 4 kg) — uses shared weightAgeNote, no duplicate needed -->
+  <div class="input-age-note hidden" id="zofranAgeNote"></div>
+  <!-- Zofran result card -->
+  <div class="dose-result-card" style="margin-bottom:12px;">
+    <h4 data-i18n="zofran_result_heading">Ondansetron Dose — Calculated</h4>
+    <div class="dose-result-grid">
+      <div class="dose-result-item">
+        <div class="dose-result-label" data-i18n="zofran_dose_label">Single Dose</div>
+        <div class="dose-result-value pending" id="zofranDoseMg">—</div>
+        <div class="dose-result-unit" data-i18n="unit_mg">mg</div>
+      </div>
+      <div class="dose-result-item">
+        <div class="dose-result-label" data-i18n="zofran_formulation_label">Formulation</div>
+        <div class="dose-result-value" id="zofranFormulation" style="font-size:0.9rem; color:var(--blue);">—</div>
+        <div class="dose-result-unit" data-i18n="unit_odt">ODT tablet</div>
+      </div>
+      <div class="dose-result-item">
+        <div class="dose-result-label" data-i18n="zofran_max_doses_label">Max Doses</div>
+        <div class="dose-result-value" style="font-size:1rem; color:var(--blue);" data-i18n="zofran_max_doses_val">2 in 24 hours</div>
+        <div class="dose-result-unit" data-i18n="zofran_repeat_label">repeat once after 8 h</div>
+      </div>
+    </div>
+    <div class="dose-result-note" data-i18n-html="zofran_dose_note_html">
+      Available as <strong>4 mg and 8 mg ODT</strong>. 2 mg dose = ½ of a 4 mg ODT. Prescription required in Canada — discuss with your physician or emergency provider.
+    </div>
+
+    <!-- QTc/interaction warning sub-card -->
+    <div class="zofran-warning">
+      ⚠️ <strong data-i18n="zofran_qt_warning_title">Caution:</strong>
+      <span data-i18n="zofran_qt_warning_body"> Do not use in children with known prolonged QTc, electrolyte abnormalities (hypokalemia, hypomagnesemia), or those taking other QT-prolonging medications. Use with caution in hepatic impairment.</span>
+    </div>
+  </div>
+
+  <!-- When NOT to use ondansetron — red flag style -->
+  <div class="fever-box" style="margin-bottom:20px; background:var(--red-light); border-color:#f0c5c2; border-left-color:var(--red);">
+    <div class="fever-icon" style="font-size:1.3rem;" aria-hidden="true">🚫</div>
+    <div>
+      <h3 style="color:var(--red);" data-i18n="zofran_contraindications_heading">When NOT to Use Ondansetron</h3>
+      <p style="font-size:0.75rem; line-height:1.6; margin:0; color:#7a1818;" data-i18n-html="zofran_contraindications_html">Bilious (green) vomiting, suspected surgical abdomen, head injury, ingestion or poisoning, or child appears toxic or seriously unwell — <strong>these require physician assessment first.</strong></p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SECTION 4 — OTHER EVIDENCE-BASED STRATEGIES
+  ══════════════════════════════ -->
+  <div class="section-heading" data-i18n="s4_heading">Other Evidence-Based Strategies</div>
+
+  <div class="strategies-grid">
+
+    <!-- Continue Feeding -->
+    <div class="strategy-card accent-green">
+      <h4>
+        <span class="strategy-icon" aria-hidden="true">🍽️</span>
+        <span data-i18n="strat_feed_title">Continue Feeding</span>
+      </h4>
+      <ul>
+        <li data-i18n="strat_feed_1">Do not withhold feeds — resume age-appropriate diet as soon as tolerated</li>
+        <li data-i18n="strat_feed_2">Breastfed infants: continue breastfeeding throughout rehydration</li>
+        <li data-i18n="strat_feed_3">Avoid the BRAT diet (bananas, rice, applesauce, toast) — no evidence it speeds recovery</li>
+        <li data-i18n="strat_feed_4">Complex carbohydrates, lean meats, fruits, and vegetables are appropriate</li>
+        <li data-i18n="strat_feed_5">Avoid high-fat and high-sugar foods during acute illness</li>
+      </ul>
+    </div>
+
+    <!-- Probiotics -->
+    <div class="strategy-card accent-blue">
+      <h4>
+        <span class="strategy-icon" aria-hidden="true">🦠</span>
+        <span data-i18n="strat_probiotics_title">Probiotics</span>
+      </h4>
+      <ul>
+        <li data-i18n-html="strat_probiotics_1_html"><strong>Lactobacillus rhamnosus GG</strong> (e.g., Culturelle) and <strong>Saccharomyces boulardii</strong> have the best evidence for reducing duration of diarrhea in children</li>
+        <li data-i18n="strat_probiotics_2">May reduce duration of diarrhea by approximately 1 day</li>
+        <li data-i18n="strat_probiotics_3">Safe for healthy children; use standard pediatric dosing on package</li>
+        <li data-i18n="strat_probiotics_4">Not routinely recommended but reasonable to try</li>
+      </ul>
+    </div>
+
+    <!-- Hand Hygiene -->
+    <div class="strategy-card accent-orange">
+      <h4>
+        <span class="strategy-icon" aria-hidden="true">🧼</span>
+        <span data-i18n="strat_hygiene_title">Hand Hygiene &amp; Infection Control</span>
+      </h4>
+      <ul>
+        <li data-i18n="strat_hygiene_1">Most pediatric gastroenteritis is viral (rotavirus, norovirus, adenovirus)</li>
+        <li data-i18n-html="strat_hygiene_2_html">Rigorous handwashing with <strong>soap and water for ≥20 seconds</strong> — alcohol-based sanitizers are less effective against norovirus and rotavirus</li>
+        <li data-i18n="strat_hygiene_3">Keep child home from daycare/school until 48 hours after last episode of vomiting or diarrhea</li>
+        <li data-i18n-html="strat_hygiene_4_html">Disinfect surfaces with a <strong>dilute bleach solution (1:10)</strong></li>
+      </ul>
+    </div>
+
+    <!-- Monitoring at Home -->
+    <div class="strategy-card accent-purple">
+      <h4>
+        <span class="strategy-icon" aria-hidden="true">📋</span>
+        <span data-i18n="strat_monitor_title">Monitoring at Home</span>
+      </h4>
+      <ul>
+        <li data-i18n="strat_monitor_1">Track wet diapers / urine output: expect at least 1 wet diaper every 6–8 hours</li>
+        <li data-i18n="strat_monitor_2">Weigh child if possible — weight returning toward baseline indicates successful rehydration</li>
+        <li data-i18n="strat_monitor_3">Signs of improvement: improved activity, moist mouth, tears when crying, resumed urination</li>
+        <li data-i18n="strat_monitor_4">Keep a simple log of fluid intake and output</li>
+      </ul>
+    </div>
+
+  </div><!-- /.strategies-grid -->
+
+  <!-- ══════════════════════════════
+       SECTION 5 — WHEN TO SEEK MEDICAL ATTENTION
+  ══════════════════════════════ -->
+  <div class="section-heading" data-i18n="s5_heading">When to Seek Medical Attention</div>
+
+  <div class="emergency-card">
+    <div class="emergency-icon" aria-hidden="true">🚨</div>
+    <div class="emergency-body" style="flex:1;">
+      <h3 data-i18n="emerg_title">When to Seek Medical Attention</h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px 20px; margin-top:8px;">
+
+        <div>
+          <div class="emergency-tier" data-i18n="emerg_tier_ed">Go to the Emergency Department if:</div>
+          <ul>
+            <li data-i18n="emerg_ed_1">Bloody diarrhea or bloody vomit</li>
+            <li data-i18n="emerg_ed_2">Bilious (green or yellow) vomiting</li>
+            <li data-i18n="emerg_ed_3">Signs of severe dehydration (see Section 1 red flags)</li>
+            <li data-i18n="emerg_ed_4">Child is lethargic, unresponsive, or very difficult to rouse</li>
+            <li data-i18n="emerg_ed_5">Vomiting persists &gt;24 hours in an infant under 6 months</li>
+            <li data-i18n="emerg_ed_6">High fever in an infant under 3 months</li>
+            <li data-i18n="emerg_ed_7">Suspected ingestion or poisoning</li>
+            <li data-i18n="emerg_ed_8">Child appears to be in significant pain</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="emergency-tier" data-i18n="emerg_tier_doc">See your doctor or nurse practitioner if:</div>
+          <ul>
+            <li data-i18n="emerg_doc_1">Child is not improving after 8–12 hours of home ORT</li>
+            <li data-i18n="emerg_doc_2">Diarrhea persists &gt;7 days or worsens</li>
+            <li data-i18n="emerg_doc_3">Child is not tolerating any oral fluids despite ondansetron</li>
+            <li data-i18n="emerg_doc_4">Frequent vomiting in an infant under 2 months (rule out pyloric stenosis)</li>
+            <li data-i18n="emerg_doc_5">You are unsure or concerned for any reason</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer data-i18n-html="footer_html">
+    <strong>Disclaimer:</strong> This sheet is a clinical reference aid. Doses are based on published Canadian pediatric guidelines (SickKids AboutKidsHealth, CHEO, CPS). Individual patient factors including age, organ function, concurrent medications, and clinical context must always be considered. This tool does not replace clinical judgment or individualized medical advice.
+  </footer>
+  <footer class="no-print" style="margin-top: 8px; font-size: 0.67rem; color: var(--mid);">
+    This webpage and translations were generated using AI (Claude); please check dosing and translations for accuracy prior to distribution.
+    <a href="https://paypal.me/MichaelBravo" target="_blank" rel="noopener" style="color: #2563A8; margin-left: 4px;">If this tool was helpful, consider buying me a coffee.</a>
+  </footer>
+
+</div><!-- /.screen-wrapper -->
+
+<script src="script.js" defer></script>
+</body>
+</html>
